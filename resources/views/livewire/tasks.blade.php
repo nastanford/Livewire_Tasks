@@ -60,8 +60,12 @@
         @endforeach
       </tbody>
     </table>
+          <div class="row">
+            <div class="col-3 offset-4 border-1 border-primary pt-3">
+              {{ $tasks->links() }}
+            </div>
+          </div>
 
-  {{-- {{ $tasks->links() }}  --}}
         </div>
       </div>
     </div>
