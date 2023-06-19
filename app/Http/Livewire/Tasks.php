@@ -13,11 +13,29 @@ class Tasks extends Component
   protected $paginationTheme = 'bootstrap';
 
   public $newTask = '';
+  public $records_per_page = 5;
+  public $search = '';
+  public $page = 1;
 
   public function render()
   {
-    $tasks = Task::paginate(3);
+    $tasks = Task::whereRaw('LOWER(task_name) LIKE ?', ['%' . strtolower($this->search) . '%'])
+      ->paginate($this->records_per_page, ['*'], 'page', $this->page);
     return view('livewire.tasks', compact('tasks'));
+  }
+
+  public function search()
+  {
+    $this->resetPage();
+
+    $tasks = Task::whereRaw('LOWER(task_name) LIKE ?', ['%' . strtolower($this->search) . '%'])
+      ->paginate($this->records_per_page, ['*'], 'page', $this->page);
+
+    $this->tasks = $tasks;
+  }
+  private function resetPage()
+  {
+    $this->page = 1;
   }
   public function addTask()
   {
@@ -39,5 +57,11 @@ class Tasks extends Component
   {
     $table = Task::find($id);
     $table->delete();
+  }
+
+
+  public function mount()
+  {
+    $this->resetPage();
   }
 }

@@ -17,6 +17,14 @@
         </div>
       </div>
     </form>
+    <div class="row">
+      <div class="col-10">
+        <input type="text" wire:model="search">
+        <label for="search" class="fw-bold">Search</label>
+      </div>
+    </div>
+
+
 
     <table class="table table-striped border-1 border-dark rounded-2">
       <thead>
