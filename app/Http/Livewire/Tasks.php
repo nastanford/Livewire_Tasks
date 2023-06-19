@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-
 class Tasks extends Component
 {
 
@@ -44,9 +43,10 @@ class Tasks extends Component
     $this->tasks = \App\Models\Task::all();
   }
 
-  // mount
   public function mount()
   {
+    // how to paginate tasks
+    // $this->tasks = \App\Models\Task::paginate(3);
     $this->tasks = \App\Models\Task::all();
   }
 }
