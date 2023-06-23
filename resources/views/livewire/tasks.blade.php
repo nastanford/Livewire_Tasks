@@ -5,25 +5,45 @@
     </div>
   </div>
   <div>
-    <form wire:submit.prevent="addTask">
-      <div class="row">
-        <div class="col-10">
+  <!---
+    <div class="row">
+      <form wire:submit.prevent="addTask">
+        <div class="col-8">
           <input type="text" class="form-control my-2 border border-1 border-dark" placeholder="Enter a task" wire:model="newTask">
-        </div>
-        <div class="col-2">
           <button type="submit" class="btn btn-sm btn-dark my-2">
             Add Task
           </button>
         </div>
-      </div>
-    </form>
-    <div class="row">
-      <div class="col-10">
+      </form>
+      <div class="col-4">
         <input type="text" wire:model="search">
         <label for="search" class="fw-bold">Search</label>
       </div>
     </div>
+    --->
+    <div class="row">
+      <div class="col-2">
+        <input type="text" wire:model="search" class="form-control my-2 border border-1 border-dark" placeholder="Search">
+      </div>
+      <div class="col-1 pt-1">
+        <button type="button" class="btn btn-sm btn-dark my-2">
+          Search
+        </button>
+      </div>
+      <div class="col-7">
+        <form wire:submit.prevent="addTask">
+          <div class="input-group">
+            <input type="text" class="form-control my-2 border border-1 border-dark" placeholder="Enter a task" wire:model="newTask">
+          </div>
+        </div>
+        <div class="col-2 pt-1">
+          <button type="submit" class="btn btn-sm btn-dark my-2">
+            Add Task
+          </button>
+        </div>
+      </form>
 
+    </div>
 
 
     <table class="table table-striped border-1 border-dark rounded-2">
@@ -61,7 +81,7 @@
             @endif
           </td>
           <td>
-            <a href="#" wire:click="deleteTask({{ $task->id }})" class="btn btn-dark">
+            <a href="#" wire:click="deleteTask({{ $task->id }})" class="btn btn-sm btn-dark">
               Delete</a>
           </td>
         </tr>
