@@ -22,6 +22,20 @@
     </div>
     --->
     <div class="row">
+      <div class="col-9">
+        <div class="float-start">
+          <b>Time:</b> {{ now()->format('h:i:s A') }}
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="float-end">
+          <b>Date:</b> {{ now()->format('m/d/Y') }}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
       <div class="col-2">
         <input type="text" wire:model="search" class="form-control my-2 border border-1 border-dark" placeholder="Search">
       </div>
