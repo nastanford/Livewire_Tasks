@@ -23,7 +23,7 @@
     --->
     <div class="row">
       <div class="col-9">
-        <div class="float-start">
+        <div class="float-start" wire:poll>
           <b>Time:</b> {{ now()->format('h:i:s A') }}
         </div>
       </div>
