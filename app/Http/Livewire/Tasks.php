@@ -24,19 +24,11 @@ class Tasks extends Component
     return view('livewire.tasks', compact('tasks'));
   }
 
-  public function search()
+  public function updatingSearch()
   {
     $this->resetPage();
-
-    $tasks = Task::whereRaw('LOWER(task_name) LIKE ?', ['%' . strtolower($this->search) . '%'])
-      ->paginate($this->records_per_page, ['*'], 'page', $this->page);
-
-    $this->tasks = $tasks;
   }
-  private function resetPage()
-  {
-    $this->page = 1;
-  }
+
   public function addTask()
   {
     $table = new Task;
