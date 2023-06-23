@@ -29,6 +29,12 @@ class Tasks extends Component
     $this->resetPage();
   }
 
+  public function clearSearch()
+  {
+    $this->search = '';
+    $this->resetPage();
+  }
+
   public function addTask()
   {
     $table = new Task;

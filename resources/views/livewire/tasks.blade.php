@@ -26,8 +26,8 @@
         <input type="text" wire:model="search" class="form-control my-2 border border-1 border-dark" placeholder="Search">
       </div>
       <div class="col-1 pt-1">
-        <button type="button" class="btn btn-sm btn-dark my-2">
-          Search
+        <button type="button" wire:click="clearSearch" class="btn btn-sm btn-dark my-2">
+          Clear
         </button>
       </div>
       <div class="col-7">
